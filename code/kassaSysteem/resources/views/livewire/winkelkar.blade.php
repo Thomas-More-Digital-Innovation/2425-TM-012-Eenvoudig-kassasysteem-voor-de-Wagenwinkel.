@@ -6,7 +6,7 @@
     <ul>
         @foreach ( \App\Helpers\Shopping_cart::getCart()['products'] as $record)
             <li>
-                {{ $record['naam'] }} ({{ $record['actuele_prijs']}})
+                {{ $record['naam'] }} ({{ $record['actuele_prijs']}}) {{ $record['afbeelding'] }}
             </li>
             <li>
                 <p>aantal: {{ $record['aantal'] }}</p>

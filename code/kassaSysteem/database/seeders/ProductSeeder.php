@@ -15,7 +15,7 @@ class ProductSeeder extends Seeder
         DB::table('producten')->insert(
             [
                 [
-                    'naam' => 'appel',
+                    'naam' => 'Appel',
                     'actuele_prijs' => 0.5,
                     'afbeeldingen' => 'assets/images/items/appel.png',
                     'organisatie_id' => 1,
@@ -28,7 +28,7 @@ class ProductSeeder extends Seeder
                     'voorraadAanvullen' => true
                 ],
                 [
-                    'naam' => 'kaartje',
+                    'naam' => 'Kaartje',
                     'actuele_prijs' => 1,
                     'afbeeldingen' => 'assets/images/items/kaartje.png',
                     'organisatie_id' => 2,

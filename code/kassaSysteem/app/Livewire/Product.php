@@ -16,10 +16,10 @@ class Product extends Component
         }
     }
 
-    public function addToBasket($productId): void
+    public function addToBasket(Product $product): void
     {
 
-        $product = \App\Models\Product::where('product_id', $productId)->first();
+        /*$product = \App\Models\Product::where('product_id', $productId)->first();*/
 
         if ($product) {
             Shopping_cart::addProduct($product, 5);

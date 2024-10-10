@@ -26,6 +26,8 @@ class Shopping_cart
 
     public static function addProduct(Product $product, int $amount): void
     {
+        if( $amount != 0)
+        {
             $organisation = \App\Helpers\Login::getCart()['organisatie_id'];
             if (isset(self::$cart['products'][$product->product_id]))
             {
@@ -35,13 +37,27 @@ class Shopping_cart
                 self::$cart['products'][$product->product_id] = [
                     'id' => $product->product_id,
                     'naam' => $product->naam,
-                    'afbeelding' => $product->afbeelding,
+                    'afbeelding' => $product->afbeeldingen,
                     'actuele_prijs' => $product->actuele_prijs,
                     'organisatie' => $organisation,
                     'aantal' => $amount
                 ];
             }
             self::updateTotal();
+        }
+    }
+
+    public static function delete(Product $product): void
+    {
+        if(array_key_exists($product->product_id, self::$cart['products']))
+        {
+            self::$cart['products'][$product->product_id]['aantal']--;
+            if (self::$cart['products'][$product->product_id]['aantal'] == 0)
+            {
+                unset(self::$cart['products'][$product->product_id]);
+            }
+        }
+        self::updateTotal();
     }
 
     public static function updateTotal()

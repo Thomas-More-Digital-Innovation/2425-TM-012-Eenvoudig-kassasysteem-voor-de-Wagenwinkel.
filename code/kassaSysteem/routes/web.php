@@ -185,6 +185,7 @@ Route::get('cashBetalen', function () {
 Route::post('empty-cart', [CartController::class, 'emptyCart'])->name('empty.cart');
 
 Route::post('item-select/product/{id?}', [CartController::class, 'addProduct'])->name('cart.product-add');
+Route::get('RemoveProduct/{id?}', [CartController::class, 'delete'])->name('cart.remove-product');
 
 Route::post('begeleiderLogin', function () {
 
